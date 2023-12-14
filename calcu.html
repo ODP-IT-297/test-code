@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        
+    </style>
+</head>
+<body class="border-4 border-solid h-screen w-screen flex justify-center items-center">
+    <div class="h-[400px]  w-[400px] rounded-[8px]">
+        <form id="calculatorForm">
+            <p class="text-xl mb-[20px] flex justify-center items-center font-semibold">Elpatron Calculator</p>
+            <div class="m-[10px]">
+                <label for="">Amount</label><br>
+                <input class=" border-2 h-[30px] border-solid w-full" type="text" id="amount"><br>
+            </div>
+            <div class="m-[10px]">
+                <label for="">Rate</label><br>
+                <input class=" border-2 h-[30px] border-solid w-full" type="text" id="rate"><br>
+            </div>
+            <div class="m-[10px]">
+                <label for="">Period</label><br>
+                <input class=" border-2 h-[30px] border-solid w-full" type="text" id="bunga"><br>
+            </div>
+
+            <button class="w-full h-[50px] bg-sky-500 text-white mt-[20px] rounded-[5px]" type="button"
+                onclick="calculator()">hitungdisini</button>
+        </form>
+        <div>
+            <p class="m-[20px] flex justify-center items-center" id="resultOutput"></p>
+        </div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <!-- <div id="result"></div> -->
+    <!-- <div id="result1"></div>
+    <div id="result2"></div>
+    <div id="result3"></div> -->
+
+    <script src=" ./calcu.js"> </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- <script>
+    const chartManager = new ChartManager();
+    function calculateInterest() {
+    const initialAmount = parseFloat(document.getElementById('initialAmount').value);
+    const interestRate = parseFloat(document.getElementById('interestRate').value);
+    const period = parseFloat(document.getElementById('period').value);
+    const calculator = new SavingsCalculator(initialAmount, interestRate, period);
+    const yearlyInterest = calculator.calculateYearlyInterest();
+    document.getElementById('result').innerHTML = `Total Interest Earned: $${yearlyInterest[yearlyInterest.length - 1].totalAmount}`;
+    // Tambahkan pemanggilan fungsi untuk membuat atau memperbarui grafik
+    if (!chartManager.chart) {
+    chartManager.createChart(yearlyInterest);
+    } else {
+    chartManager.updateChart(yearlyInterest);
+    }
+    }
+</script> -->
+</body>
+    
+
+
