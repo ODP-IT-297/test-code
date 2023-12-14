@@ -1,89 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 
-    <style>
-        
-    </style>
-</head>
-<body>
+    <style></style>
+  </head>
+  <body>
     <div>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Button
-          </button>
-        <button onclick="sortAlphabet()">Sort Alphabet</button>
-        <button onclick="sortNumeric()">Sort Numeric</button>
-        <button onclick="calculatorSavings()">try</button>
-        <button onclick="fetchApi()">fetch</button>
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Button
+      </button>
+      <button onclick="sortAlphabet()">Sort Alphabet</button>
+      <button onclick="sortNumeric()">Sort Numeric</button>
+      <button onclick="calculatorSavings()">try</button>
+      <button onclick="fetchApi()">fetch</button>
 
-        <h1 id="demo"></h1>
-        <h1 id="demo2"></h1>
-        <h1 id="calculator-saving">0</h1>
-        <ul id="list" class="grid grid-cols-3 gap-3"></ul>
+      <h1 id="demo"></h1>
+      <h1 id="demo2"></h1>
+      <h1 id="calculator-saving">0</h1>
+      <ul id="list" class="grid grid-cols-3 gap-3"></ul>
     </div>
 
     <script>
-        const points = [100, 1, 2, 7, 5, 90]
-        const alphabet = ["intan", "bayu", "zebra"]
-        document.getElementById("demo").innerHTML = points
-        document.getElementById("demo2").innerHTML = alphabet
+      const points = [100, 1, 2, 7, 5, 90];
+      const alphabet = ["intan", "bayu", "zebra"];
+      document.getElementById("demo").innerHTML = points;
+      document.getElementById("demo2").innerHTML = alphabet;
 
-        function sortAlphabet(){
-            alphabet.sort()
-            document.getElementById("demo2").innerHTML = alphabet
-        }
+      function sortAlphabet() {
+        alphabet.sort();
+        document.getElementById("demo2").innerHTML = alphabet;
+      }
 
-        function sortNumeric(){
-            points.sort(() => 0.5 - Math.random())
-            //points.sort(() => -1)
-            document.getElementById("demo").innerHTML = points
-        }
+      function sortNumeric() {
+        points.sort(() => 0.5 - Math.random());
+        //points.sort(() => -1)
+        document.getElementById("demo").innerHTML = points;
+      }
 
-        function calculatorSavings() {
-            let initialSavings = prompt("Masukkan tabungan awal");
-            let interestRate = prompt("Masukkan tingkat tabungan bunga tahunan");
-            let savingPeriod = prompt("Masukkan periode simpanan");
+      function calculatorSavings() {
+        let initialSavings = prompt("Masukkan tabungan awal");
+        let interestRate = prompt("Masukkan tingkat tabungan bunga tahunan");
+        let savingPeriod = prompt("Masukkan periode simpanan");
 
-            let interest = (initialSavings * interestRate * savingPeriod) / 100
+        let interest = (initialSavings * interestRate * savingPeriod) / 100;
 
-            let totalSavings = initialSavings + interest
+        let totalSavings = initialSavings + interest;
 
-            document.getElementById("calculator-saving").innerHTML = totalSavings
-        
-        }
+        document.getElementById("calculator-saving").innerHTML = totalSavings;
+      }
 
-        function fetchApi() {
-            const list = document.getElementById('list')
-            list.innerHTML = ''
+      function fetchApi() {
+        const list = document.getElementById("list");
+        list.innerHTML = "";
 
-            fetch('https://jsonplaceholder.typicode.com/todos')
-                .then((data) => data.json())
-                .then((data) => {
-                    data.sort((a, b) => b.id - a.id ).forEach(element => {
-                        list.innerHTML += `
+        fetch("https://jsonplaceholder.typicode.com/todos")
+          .then((data) => data.json())
+          .then((data) => {
+            data
+              .sort((a, b) => b.id - a.id)
+              .forEach((element) => {
+                list.innerHTML += `
                         <div class="max-w-sm rounded shadow-lg">
                         <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2">${element.id}</div>
+                            <div class="font-bold text-xl mb-2">${
+                              element.id
+                            }</div>
                             <p class="text-gray-700 text-base">
                                 ${element.title}
                             </p>
                         </div>
                         <div class="px-6 pt-4 pb-2">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">${element.completed ? "Completed" : "Not Completed"}</span>
+                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">${
+                              element.completed ? "Completed" : "Not Completed"
+                            }</span>
                         </div>
                         </div>
-                        `
-                    });
-                })
+                        `;
+              });
+          });
+      }
 
-            
-        }
+      fetchApi();
 
-        fetchApi()
+      function consoleLog() {
+        console.log("elora");
+      }
     </script>
-</body>
+  </body>
 </html>
