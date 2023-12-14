@@ -215,6 +215,10 @@ withdraw('123456789', 500);
 
 console.log(customers);
 
+addCustomer('Ngurah Indra', '12341234');
+
+
+
   
   
   
