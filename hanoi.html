@@ -1,66 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Pohon Keluarga</title>
     <style>
-        .person {
-            padding: 10px;
-            background-color: lightblue;
-            border: 1px solid black;
-            margin: 5px;
-        }
+      .person {
+        padding: 10px;
+        background-color: lightblue;
+        border: 1px solid black;
+        margin: 5px;
+      }
 
-        .children {
-            margin-left: 20px;
-            display: flex;
-            flex-direction: column;
-        }
+      .children {
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <input type="text" id="personName" placeholder="Nama Anggota Keluarga">
-        <button onclick="addPerson()">Tambah Anggota</button>
+      <input type="text" id="personName" placeholder="Nama Anggota Keluarga" />
+      <button onclick="addPerson()">Tambah Anggota</button>
     </div>
     <div id="familyTree"></div>
 
     <script>
-       function createPersonElement(name) {
-            let personDiv = document.createElement('div');
-            personDiv.className = 'person';
-            personDiv.textContent = name;
-            personDiv.onclick = function() {
-                event.stopPropagation()
-                let childName = prompt("Masukkan nama anak untuk " + name);
-                if (childName) {
-                    let childrenDiv = personDiv.querySelector('.children') || createChildrenContainer(personDiv);
-                    let childDiv = createPersonElement(childName);
-                    childrenDiv.appendChild(childDiv);
-                }
-            };
-            return personDiv;
-        }
+      function createPersonElement(name) {
+        let personDiv = document.createElement("div");
+        personDiv.className = "person";
+        personDiv.textContent = name;
+        personDiv.onclick = function () {
+          event.stopPropagation();
+          let childName = prompt("Masukkan nama anak untuk " + name);
+          if (childName) {
+            let childrenDiv =
+              personDiv.querySelector(".children") ||
+              createChildrenContainer(personDiv);
+            let childDiv = createPersonElement(childName);
+            childrenDiv.appendChild(childDiv);
+          }
+        };
+        return personDiv;
+      }
 
-    function createChildrenContainer(parentElement) {
-        let childrenDiv = document.createElement('div');
-        childrenDiv.className = 'children';
+      function createChildrenContainer(parentElement) {
+        let childrenDiv = document.createElement("div");
+        childrenDiv.className = "children";
         parentElement.appendChild(childrenDiv);
         return childrenDiv;
-    }
+      }
 
-    function addPerson() {
-        let name = document.getElementById('personName').value;
+      function addPerson() {
+        let name = document.getElementById("personName").value;
         if (name) {
-            let familyTree = document.getElementById('familyTree');
-            let personDiv = createPersonElement(name);
-            familyTree.appendChild(personDiv);
-            document.getElementById('personName').value = ''; // Reset input field
+          let familyTree = document.getElementById("familyTree");
+          let personDiv = createPersonElement(name);
+          familyTree.appendChild(personDiv);
+          document.getElementById("personName").value = ""; // Reset input field
         }
-    }
+      }
 
-    addPerson('Kakek/Nenek');
+      addPerson("Kakek/Nenek");
 
+      function adsadsa(params) {
+        console.log("asdsadsa");
+      }
     </script>
-</body>
+  </body>
 </html>
