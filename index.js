@@ -209,6 +209,9 @@ function performTransaction(accountNumber, amount) {
   }
   
 
+  function fal(){
+    console.log("hai")
+  }
 addCustomer('John Doe', '123456789');
 deposit('123456789', 1000);
 withdraw('123456789', 500);
