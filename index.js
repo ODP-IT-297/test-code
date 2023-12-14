@@ -59,7 +59,7 @@
 // console.log(array.sort((a, b) => b - a))
 
 // function name(value){
-    // logic here
+// logic here
 //  console.log(value);
 // }
 
@@ -80,9 +80,9 @@
 //       // Jumlah baris harus ganjil untuk pola tengah yang bagus
 //       jumlahBaris++;
 //     }
-  
+
 //     const tengah = Math.floor(jumlahBaris / 2);
-  
+
 //     for (let i = 0; i < jumlahBaris; i++) {
 //       if (i === tengah) {
 //         console.log('*'.repeat(jumlahBaris)); // Baris tengah
@@ -91,7 +91,7 @@
 //       }
 //     }
 //   }
-  
+
 //   cetakBintang(4);
 
 // function cetakSegitigaTengah(jumlahBaris, condition) {
@@ -108,16 +108,16 @@
 //             console.log(spasi + bintang);
 //           }
 //     }
-    
+
 //   }
-  
+
 //   cetakSegitigaTengah(4);
 //   cetakSegitigaTengah(4, "terbalik");
 
 //   function cetakSegitigaTengahKiri(jumlahBaris) {
 //     
 //   }
-  
+
 //   cetakSegitigaTengahKiri(4);
 
 
@@ -164,57 +164,56 @@ function withdraw(accountNumber, amount) {
 }
 
 function performTransaction(accountNumber, amount) {
-    let customer = findCustomerByAccountNumber(accountNumber);
-    if (!customer) {
-      return "Account not found";
-    }
-  
-    if (customer.balance + amount < 0) {
-      return "Insufficient balance";
-    }
-  
-    customer.balance += amount;
-    customer.transactionHistory.push({
-      type: amount < 0 ? 'withdrawal' : 'deposit',
-      amount: amount
-    });
-  
-    return "Transaction successful";
+  let customer = findCustomerByAccountNumber(accountNumber);
+  if (!customer) {
+    return "Account not found";
   }
-  
-  function validateCustomerData(name, accountNumber) {
-    if (customers.some(customer => customer.accountNumber === accountNumber)) {
-      return false; // Account number is not unique
-    }
-    // Add more validation as needed
-    return true;
+
+  if (customer.balance + amount < 0) {
+    return "Insufficient balance";
   }
-  
-  function editCustomerInfo(accountNumber, {}) {
-    let customer = findCustomerByAccountNumber(accountNumber);
-    if (customer) {
-      Object.assign(customer, newInfo);
-      return "Customer info updated";
-    } else {
-      return "Customer not found";
-    }
+
+  customer.balance += amount;
+  customer.transactionHistory.push({
+    type: amount < 0 ? 'withdrawal' : 'deposit',
+    amount: amount
+  });
+
+  return "Transaction successful";
+}
+
+function validateCustomerData(name, accountNumber) {
+  if (customers.some(customer => customer.accountNumber === accountNumber)) {
+    return false; // Account number is not unique
   }
-  
-  function getHighBalanceCustomers(minimumBalance) {
-    return customers.filter(customer => customer.balance >= minimumBalance);
+  // Add more validation as needed
+  return true;
+}
+
+function editCustomerInfo(accountNumber, { }) {
+  let customer = findCustomerByAccountNumber(accountNumber);
+  if (customer) {
+    Object.assign(customer, newInfo);
+    return "Customer info updated";
+  } else {
+    return "Customer not found";
   }
-  
-  function calculateTotalBalance() {
-    return customers.reduce((total, customer) => total + customer.balance, 0);
-  }
-  
+}
+
+function getHighBalanceCustomers(minimumBalance) {
+  return customers.filter(customer => customer.balance >= minimumBalance);
+}
+
+function calculateTotalBalance() {
+  return customers.reduce((total, customer) => total + customer.balance, 0);
+}
+
 
 addCustomer('John Doe', '123456789');
 deposit('123456789', 1000);
 withdraw('123456789', 500);
 
 console.log(customers);
+//tambah
 
-  
-  
-  
+
