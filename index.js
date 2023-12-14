@@ -213,6 +213,11 @@ addCustomer('John Doe', '123456789');
 deposit('123456789', 1000);
 withdraw('123456789', 500);
 
+function checklog(string){
+  console.log(string);
+}
+
+
 console.log(customers);
 
   
