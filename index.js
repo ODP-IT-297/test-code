@@ -207,6 +207,10 @@ function performTransaction(accountNumber, amount) {
   function calculateTotalBalance() {
     return customers.reduce((total, customer) => total + customer.balance, 0);
   }
+
+  function doNothing() {
+    
+  }
   
 
 addCustomer('John Doe', '123456789');
