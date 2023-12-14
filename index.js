@@ -207,6 +207,10 @@ function performTransaction(accountNumber, amount) {
   function calculateTotalBalance() {
     return customers.reduce((total, customer) => total + customer.balance, 0);
   }
+
+  function bikinNama(){
+    console.log("Okta")
+  }
   
 
 addCustomer('John Doe', '123456789');
